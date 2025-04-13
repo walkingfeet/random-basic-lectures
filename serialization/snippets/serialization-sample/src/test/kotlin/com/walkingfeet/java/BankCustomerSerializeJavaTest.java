@@ -1,5 +1,7 @@
 package com.walkingfeet.java;
 
+import com.walkingfeet.example.java.BankAccountJava;
+import com.walkingfeet.example.java.BankCustomerJava;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;

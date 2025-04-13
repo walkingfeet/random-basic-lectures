@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "UserSampleAvro",
+  "namespace": "com.walkingfeet.example.avro",
+  "fields": [
+    { "name": "name", "type": "string" },
+    { "name": "age",  "type": "int" },
+    { "name": "email", "type": ["null", "string"], "default": null }
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 # You can also start simply with 'default'
-theme: default
+theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 #background: https://cover.sli.dev 
@@ -44,8 +44,7 @@ layoutClass: gap-16
 
 * 10 minutes - Introduction
 * 20 minutes - Workshop
-* 20 minutes - Presentation material
-* 20 minutes - Demo code
+* 30 minutes - Presentation material
 * 10 minutes - Q&A
 
 ::right::
@@ -109,13 +108,19 @@ Sample implementation
 
 --- 
 ---
-# Java example serialization
+# Java example
+
+<<< @/snippets/serialization-sample/src/main/kotlin/com/walkingfeet/example/java/BankAccountJava.java#SampleInnerClassForJavaSerialization java
+<<< @/snippets/serialization-sample/src/main/kotlin/com/walkingfeet/example/java/BankCustomerJava.java#SampleOuterClassForJavaSerialization java
+
+Encoding and decoding
 
 <<< @/snippets/serialization-sample/src/test/kotlin/com/walkingfeet/java/BankCustomerSerializeJavaTest.java#serializerImplementation java
 
 --- 
 ---
 # Formats
+
 * Language-specific formats (java.io.serializable, Ruby — marshal, Python — pickle etc.)
 * Text encodings - Json, XML, CSV
 * Binary encodings — Thrift, Protocol buffers, Avro
@@ -129,7 +134,6 @@ Sample implementation
 * Types — Big decimal, or file as field
 * Schema as common protocol
 * Versioning
-* Volume
 
 --- 
 ---
@@ -163,19 +167,31 @@ Sample implementation
 --- 
 ---
 # Protobuf, Avro, Thirft
+#### Cross-platform binary formats
 * On many languages
 * Not human readable — need translator
-* Types — can be limited (?)
+* Types — can be limited
 * Schema — exists, no central communication
 * Versioning — in the protocol
-* Volume — less than text based, bytes
 
+<br>
+
+#### Difference
+
+* Protobuff - gRPC
+* Avro - General serialization (Kafka or BigData table)
+* Thrift - RPC (Facebook), Cassandra
 
 ---
 ---
-# Examples
+# Avro schema file
+<<< @/snippets/serialization-sample/schema/UserSample.avsc json
+<!-- Avro here as example of binary formats -->
 
-<!-- See examples in snippets/serialization-sample-->
+---
+---
+# Avro deserialisation
+<<< @/snippets/serialization-sample/src/test/kotlin/com/walkingfeet/example/avro/UserSampleSerializeTest.kt#EncodingAndDecoding kotlin
 ---
 layout: center
 class: text-center
